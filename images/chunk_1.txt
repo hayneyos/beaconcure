@@ -1,0 +1,9 @@
+
+
+def split_file_by_characters(file_path, chars_per_file):
+    with open(file_path, 'r') as file:
+        file_content = file.read()
+
+    for i in range(0, len(file_content), chars_per_file):
+        with open(f'chunk_{i // chars_per_file + 1}.txt', 'w') as output_file:
+            output_file.write(file_content[i:i + chars_per_file])
